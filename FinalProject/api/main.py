@@ -5,14 +5,15 @@ from .routers import index as indexRoute
 from .models import model_loader
 from .dependencies.config import conf
 from fastapi import FastAPI
-from routers import sandwiches
+from .routers import sandwiches
 from fastapi import FastAPI
-
+from .routers import sandwiches, orders, order_details, recipes, resources, promo_codes
 
 
 
 app = FastAPI()
 app.include_router(sandwiches.router)
+app.include_router(promo_codes.router)
 origins = ["*"]
 
 app.add_middleware(
